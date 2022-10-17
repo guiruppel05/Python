@@ -19,4 +19,3 @@ else: # qualquer valor acima de 1000 cai nessa condição
   finalPrice = price + shipping
 
 print('Total com frete: R${:.2f} (Valor do frete: R${:.2f}).'.format(finalPrice, shipping))
-
