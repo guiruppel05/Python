@@ -63,3 +63,4 @@ while True:
   else:
     print('O total a ser pago é: R$ {:.2f}'.format(bill3930639))
     break   
+
