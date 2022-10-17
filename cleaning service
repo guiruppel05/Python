@@ -1,0 +1,81 @@
+# Início primeira função #
+def metragem_limpeza():
+  price = 0
+  while True:
+    try:
+      m = int(input('Insira a metragem² da casa: '))
+    except ValueError:
+        print('Valor inválido! Tente novamente...')
+        continue
+    if 30 <= m < 300:
+      price = 60 + 0.3 * m
+      print('Será necessário(a) um(a) funcionário(a) para a limpeza.')
+      break
+    elif 300 <= m < 700:
+      price = 120 + 0.5 * m
+      print('Serão necessários(as) dois(duas) funcionários(as) para a limpeza.')
+      break
+    else: 
+      print('Não aceitamos casas menores que 30m² ou maiores que 700m²!')
+      continue
+  return price
+# Fim primeira função e início segunda função #
+def tipo_limpeza():
+  mult = 0
+  while True:
+    print('Insira o tipo de limpeza desejada (B/C):')
+    print('B - Básica - Indicada para sujeiras semanais ou quinzenais.')
+    print('C - Completa - Indicada para sujeiras antigas e/ou não rotineiras.')
+    type = input('>> ')
+    if type == 'B':
+      mult = 1.0
+      print('Você selecionou a limpeza Básica.')
+      break
+    elif type == 'C':
+      mult = 1.30
+      print('Você selecionou a limpeza Completa.')
+      break
+    else:
+        print('Opção inválida! Tente novamente...')
+        continue
+  return mult
+# Fim segunda função e início terceira função #
+def adicional_limpeza():
+  sum = 0
+  while True:
+    print('Deseja mais algum adicional?')
+    print('0 - Não desejo mais nada (encerrar)')
+    print('1 - Pasar 10 peças de roupas ------- R$10,00')
+    print('2 - Limpeza de 1 Forno/Micro-ondas - R$12,00')
+    print('3 - Limpeza de 1 Geladeira/Freezer - R$20,00')
+    add = input('>> ')
+    if add == '1':
+        x = 10
+        sum += x
+        continue
+    elif add == '2':
+        x = 12
+        sum += x
+        continue
+    elif add == '3':
+        x = 20
+        sum += x
+        continue
+    else:
+        break
+  return sum
+# Fim terceira função e início Programa Principal #
+print('---------- Sejam bem vindos ao Programa de Serviço de Limpeza do Guilherme Ruppel ----------')
+print('____________________________________________________________________________________________')
+print('---------- ---------- ----------- Etapa 1 de 3 (Metragem²) ----------- ---------- ----------')
+cleaningSize = metragem_limpeza()
+print('____________________________________________________________________________________________')
+print('---------- ---------- -------------- Etapa 2 de 3 (Tipo) ------------- ---------- ----------')
+cleaningType = tipo_limpeza()
+print('____________________________________________________________________________________________')
+print('---------- ---------- ----------- Etapa 3 de 3 (Adicionais) ---------- ---------- ----------')
+cleaningAdds = adicional_limpeza()
+total = cleaningSize * cleaningType + cleaningAdds
+print('____________________________________________________________________________________________')
+print('TOTAL: R${:.2f} (metragem: R${:.2f} * tipo: {:.2f} + adicional(is): R${:.2f}).'.format(total, cleaningSize, cleaningType, cleaningAdds))
+print('____________________________________________________________________________________________')
