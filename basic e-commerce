@@ -1,0 +1,21 @@
+print('Seja bem-vindo a Loja Virtual do Guilherme Ruppel')
+unit3930639 = float(input('Escolheu seu produto? Insira o valor unitário: '))
+qty = int(input('Agora insira a quantidade desejada: '))
+price = unit3930639 * qty # 3930639, RU como identificador pessoal
+print('Total sem frete: R${:.2f}'.format(price))
+
+# definição do frete dentro do if para que seja possível o valor específico na saída do console
+if (0 <= qty < 11):
+  shipping = 30
+  finalPrice = price + shipping
+elif (11 <= qty < 101):
+  shipping = 60
+  finalPrice = price + shipping
+elif (101 <= qty < 1001):
+  shipping = 120
+  finalPrice = price + shipping
+else: # qualquer valor acima de 1000 cai nessa condição
+  shipping = 240
+  finalPrice = price + shipping
+
+print('Total com frete: R${:.2f} (Valor do frete: R${:.2f}).'.format(finalPrice, shipping))
