@@ -1,0 +1,65 @@
+print('Seja bem-vindo a Sorveteria do Guilherme Ruppel')
+print('------------------------------------------- Cardápio --------------------------------------------')
+print('| Código | Descrição            | Tamanho P (500ml)  | Tamanho M (1000ml)  | Tamanho G (2000ml) |')
+print('|   TR   | Sabores Tradicionais |      R$ 6,00       |      R$ 10,00       |      R$ 18,00      |')
+print('|   ES   | Sabores Especiais    |      R$ 7,00       |      R$ 12,00       |      R$ 21,00      |')
+print('|   PR   | Sabores Premium      |      R$ 8,00       |      R$ 14,00       |      R$ 24,00      |')
+print('-------------------------------------------------------------------------------------------------')
+bill3930639 = 0 #Conta com o sub-total da compra + identificador pessoal
+while True:
+  size = input('Insira o tamanho do pote desejado (P/M/G): ')
+  code = input('Insira o código do sabor desejado (TR/ES/PR): ')
+  if (size == 'P'):
+    size_ = 'PEQUENO' #Criei as variáveis size_ e code_ para que a saída do pedido ficasse mais agradável ao cliente
+    if (code == 'TR'):
+      code_ = 'TRADICIONAL'
+      price = 6
+    elif (code == 'ES'):
+      code_ = 'ESPECIAL'
+      price = 7
+    elif (code == 'PR'):
+      code_ = 'PREMIUM'
+      price = 8
+    else:
+      print('-------------- TAMANHO ou CÓDIGO inválido(s) --------------')
+      continue
+  elif (size == 'M'):
+    size_ = 'MÉDIO'
+    if (code == 'TR'):
+      code_ = 'TRADICIONAL'
+      price = 10
+    elif (code == 'ES'):
+      code_ = 'ESPECIAL'
+      price = 12
+    elif (code == 'PR'):
+      code_ = 'PREMIUM'
+      price = 14
+    else:
+      print('-------------- TAMANHO ou CÓDIGO inválido(s) --------------')
+      continue
+  elif (size == 'G'):
+    size_ = 'GRANDE'
+    if (code == 'TR'):
+      code_ = 'TRADICIONAL'
+      price = 18
+    elif (code == 'ES'):
+      code_ = 'ESPECIAL'
+      price = 21
+    elif (code == 'PR'):
+      code_ = 'PREMIUM'
+      price = 24
+    else:
+      print('-------------- TAMANHO ou CÓDIGO inválido(s) --------------')
+      continue
+  else:
+    print('-------------- TAMANHO ou CÓDIGO inválido(s) --------------')
+    continue
+  bill3930639 += price
+  print('Você pediu um sorvete {} sabor {} de R$ {:.2f}'.format(size_, code_, price))
+  print('-----------------------------------------------------------')
+  more = input('Deseja pedir mais alguma coisa (S/N)? ')
+  if more == 'S':
+    continue
+  else:
+    print('O total a ser pago é: R$ {:.2f}'.format(bill3930639))
+    break   
