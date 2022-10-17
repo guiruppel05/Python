@@ -1,0 +1,92 @@
+employees_list = []
+# ----- Começo cadastrar_funcionario ---- #
+def cadastrar_funcionario(id):
+  print('____________________________________________________________________________________________')
+  print('----------- ---------- --------- ---- Menu de Cadastro ---- --------- ---------- -----------')
+  print('O código do funcionário cadastrado será: {}'.format(id))
+  name = input('Insira o nome do funcionário: ')
+  department = input('Insira o setor do funcionário: ')
+  wage = float(input('Insira o salário do funcionário: '))
+  employees = {'Id': id,
+               'Nome': name, 
+               'Setor': department, 
+               'Salário': wage}
+  employees_list.append(employees.copy())
+  print('Funcionário {} cadastrado com sucesso.'.format(name))
+
+# ----- Começo consultar_funcionarios() ---- #
+def consultar_funcionarios():
+  while True:
+    try:
+      print('____________________________________________________________________________________________')
+      print('----------- ---------- --------- ---- Menu de Consulta ---- --------- ---------- -----------')
+      print('Escolha a opção desejada:')
+      print('1 - Consultar todos os funcionários.')
+      print('2 - Consultar funcionário por id.')
+      print('3 - Consultar funcionário por setor.')
+      print('4 - Retornar.')
+      option = int(input('>> '))
+      if option == 1:
+        for employee in employees_list:
+          for key, value in employee.items():
+            print('{}: {}'.format(key,value))
+      elif option == 2:
+        code = int(input('Digite o código do funcionário: '))
+        for employee in employees_list:
+          if(employee['Id'] == code):
+            for key, value in employee.items():
+              print('{}: {}'.format(key,value))      
+      elif option == 3:
+        id = input('Digite o setor do funcionário: ')
+        for employee in employees_list:
+          if(employee['Setor'] == id):
+            for key, value in employee.items():
+              print('{}: {}'.format(key,value))
+      elif option == 4:
+        return
+      else:
+        print('Opção inválida, tente novamente!')
+        continue
+    except ValueError:
+      print('Por favor, insira um número inteiro.')
+
+
+# ----- Começo remover_funcionario() ---- #
+def remover_funcionario():
+  print('____________________________________________________________________________________________')
+  print('----------- ---------- --------- ---- Menu de Remoção ---- --------- ---------- ------------')
+  id = int(input('Digite o código do funcionário: '))
+  for employee in employees_list:
+    if(employee['Id'] == id):
+      employees_list.remove(employee)
+      print('Funcionário {} removido com sucesso.'.format(id))
+
+# Programa Principal
+
+print('---------- ----- Bem-vindo ao Controle de Funcionários do Guilherme Ruppel ----- -----------')
+print('____________________________________________________________________________________________')
+print('----------- ---------- ---------- ---- Menu Principal ---- ---------- ---------- -----------')
+id = 300
+while True:
+  try:
+    print('Escolha a opção desejada:')
+    print('1 - Cadastrar funcionário.')
+    print('2 - Consultar funcionário(s).')
+    print('3 - Remover funcionário.')
+    print('4 - Sair.')
+    option = int(input('>> '))
+    if option == 1:
+        id += 1
+        cadastrar_funcionario(id)
+    elif option == 2:
+        consultar_funcionarios()
+    elif option == 3:
+        remover_funcionario()
+    elif option == 4:
+        print('Programa encerrado.')
+        break
+    else:
+        print('Opção inválida, tente novamente!')
+        continue
+  except ValueError:
+    print('Por favor, insira um número inteiro.')
