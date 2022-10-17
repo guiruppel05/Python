@@ -1,0 +1,62 @@
+def valFile(fileName):
+  try:
+    f = open(fileName, 'rt')
+    f.close()
+  except FileNotFoundError:
+    return False
+  else:
+    return True
+
+def createFile(fileName):
+  try:
+    f = open(fileName, 'wt+')
+    f.close()
+  except:
+    print('Erro na criação do arquivo')
+  else:
+    print('Arquivo {} criado com sucesso!\n'.format(fileName))
+
+def inputGame(fileName, gameName, videogameName):
+  try:
+    f = open(fileName, 'at')
+  except:
+    print('Erro ao abrir o arquivo')
+  else:
+    f.write('{}; {}\n'.format(gameName,videogameName))
+  finally:
+    f.close()
+
+def listFile(fileName):
+  try:
+    f = open(fileName, 'rt')
+  except:
+    print('Erro ao ler o arquivo')
+  else:
+    print(f.read())
+  finally:
+    f.close()
+
+file = 'games.txt'
+if valFile(file):
+  print('Arquivo localizado no computador')
+else:
+  print('Arquivo inexistente')
+  createFile(file)
+while True:
+  print('MENU')
+  print('1 - Cadastrar novo item')
+  print('2 - Listar cadastros')
+  print('3 - Sair')
+
+  op = valInt('Escolha a opção desejada: ', 1, 3)
+  if op == 1:
+    print('Opção de cadastrar novo item selecionada...\n')
+    gameName = input('Nome do jogo: ')
+    videogameName = input('Nome do videogame: ')
+    inputGame(file, gameName, videogameName)
+  elif op == 2:
+    print('Opção de listar itens selecionada...\n')
+    listFile(file)
+  elif op == 3:
+    print('Encerrando o programa...')
+    break
