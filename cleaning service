@@ -79,3 +79,6 @@ total = cleaningSize * cleaningType + cleaningAdds
 print('____________________________________________________________________________________________')
 print('TOTAL: R${:.2f} (metragem: R${:.2f} * tipo: {:.2f} + adicional(is): R${:.2f}).'.format(total, cleaningSize, cleaningType, cleaningAdds))
 print('____________________________________________________________________________________________')
+
+
+
